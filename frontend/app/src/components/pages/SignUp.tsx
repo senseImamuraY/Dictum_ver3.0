@@ -18,11 +18,11 @@ import Paper from '@mui/material/Paper';
 
 import { makeStyles, createStyles } from '@mui/styles';
 // import { useTheme } from '@mui/material/styles';
-import { AuthContext } from "App"
+import { AuthContext } from "../../App"
 import AlertMessage from "../molecules/AlertMessage"
-import { signUp } from "apis/auth"
-import { SignUpParams } from "interfaces/index"
-import { WidthChanger } from "templates/WidthChanger"
+import { signUp } from "../../apis/auth"
+import { SignUpParams } from "../../interfaces/index"
+import { WidthChanger } from "../../templates/WidthChanger"
 
 const useStyles = makeStyles(() => ({
   // const useStyles = makeStyles((theme: Theme) => ({

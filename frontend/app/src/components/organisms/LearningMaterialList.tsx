@@ -7,7 +7,7 @@ import { makeStyles, createStyles } from '@mui/styles';
 import { Container } from '@mui/material';
 import LearningMaterialForm from "./LearningMaterialForm"
 import LearningMaterialItem from "./LearningMaterialItem"
-import { WidthChanger } from "templates/WidthChanger";
+import { WidthChanger } from "../../templates/WidthChanger";
 import { getLearningMaterials } from "../../apis/learning_material"
 import { LearningMaterial } from "../../interfaces/index"
 

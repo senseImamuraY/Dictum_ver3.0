@@ -16,11 +16,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-import { AuthContext } from "App"
+import { AuthContext } from "../../App"
 import AlertMessage from "../molecules/AlertMessage"
-import { signIn } from "apis/auth"
-import { SignInParams } from "interfaces/index"
-import { WidthChanger } from "templates/WidthChanger"
+import { signIn } from "../../apis/auth"
+import { SignInParams } from "../../interfaces/index"
+import { WidthChanger } from "../../templates/WidthChanger"
 // const useStyles = makeStyles((theme: Theme) => ({
 //   container: {
 //     marginTop: theme.spacing(6)
