@@ -1,7 +1,7 @@
 import { render } from "react-dom";
 import WaveSurfer from "wavesurfer.js";
 import { useRef, useEffect, useState, useContext, useCallback } from "react";
-import Waveform from "./Waveform";
+// import Waveform from "./Waveform";
 import RegionsPlugin from "wavesurfer.js/dist/plugin/wavesurfer.regions.min";
 import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min";
 import MarkersPlugin from "wavesurfer.js/src/plugin/markers";
@@ -609,7 +609,13 @@ export function WSF_stock(p_file) {
       console.log(waveformRef);
       console.log(p_file);
       console.log(state.state);
+      console.log(state.state.file);
+
+      // const NewFile = new File([state.state.file], state.state.body);
+      // console.log(NewFile);
+      // const corsAudio = new Audio(NewFile);
       const corsAudio = new Audio(state.state.file.url);
+      // waveformRef.current.loadBlob(state.state.file);
       waveformRef.current.load(corsAudio);
 
       var slider = document.querySelector("#slider");

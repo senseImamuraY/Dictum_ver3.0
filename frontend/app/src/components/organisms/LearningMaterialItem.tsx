@@ -25,8 +25,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 // import AlertMessage from "components/molecules/AlertMessage"
 import { LearningMaterial } from "../../interfaces/index"
 import { deleteLearningMaterials } from "../../apis/learning_material"
-import { WSF, WSF_stock } from "components/atoms/wevesurfer/wavesurfer"
-import { Wavesurfer_react } from "../../components/atoms/wevesurfer/wavesurfer_react"
+import { WSF_stock } from "../atoms/wavesurfer/wavesurfer"
+// import { Wavesurfer_react } from "../../components/atoms/wevesurfer/wavesurfer_react"
 import { AuthContext } from "App"
 import { Update } from "../pages/Update"
 import AlertMessage from "../molecules/AlertMessage"
@@ -212,7 +212,7 @@ const LearningMaterialItem = ({ learning_material, handleGetLearningMaterials }:
               onClick={() => HandleDeleteLearningMaterial(learning_material.id)}
               id="delete"
             >
-              <DeleteIcon sx={{ color: "#000000" }} />delete
+              <DeleteIcon color="primary" />delete
             </IconButton>
           </div>
         </CardActions>

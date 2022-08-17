@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useContext } from "react"
 import { useParams } from "react-router-dom";
-import { experimentalStyled as styled } from '@material-ui/core/styles';
+// import { experimentalStyled as styled } from '@material-ui/core/styles';
 
 import { Theme } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
@@ -11,7 +11,7 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera"
 import CancelIcon from "@material-ui/icons/Cancel"
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import DoneIcon from '@mui/icons-material/Done';
-
+import { Input } from '@mui/material';
 import AlertMessage from "../molecules/AlertMessage"
 import { makeStyles, createStyles } from '@mui/styles';
 import { AuthContext } from "App";
@@ -40,9 +40,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-const Input = styled("input")({
-  display: "none"
-})
+// const Input = styled("input")({
+//   display: "none"
+// })
 
 const borderStyles = {
   bgcolor: "background.paper",
@@ -199,8 +199,7 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
                   // accept="image/*"
                   id="icon-button-file"
                   type="file"
-                  accept="audio/*"
-
+                  sx={{ display: "none", accept: "audio/*" }}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     uploadImage(e)
                     previewImage(e)

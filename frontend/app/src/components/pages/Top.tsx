@@ -20,8 +20,6 @@ import StarIcon from '@mui/icons-material/StarBorder';
 import Picture1 from "../imgs/Online test-bro.svg"
 import Picture2 from '../imgs/Inbox cleanup-pana.svg'
 // import Link from '@mui/material/Link';
-import { SecondaryButton } from "components/atoms/buttons/SecondaryButton";
-import { PrimaryButton } from "components/atoms/buttons/PrimaryButton"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();

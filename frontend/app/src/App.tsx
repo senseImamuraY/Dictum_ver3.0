@@ -9,10 +9,10 @@ import SignIn from "components/pages/SignIn"
 
 import { getCurrentUser } from "apis/auth"
 import { User } from "interfaces/index"
-import { WSF, WSF_stock } from "./components/atoms/wevesurfer/wavesurfer";
+// import { WSF, WSF_stock } from "./components/atoms/wevesurfer/wavesurfer";
 import { Users } from './components/organisms/User';
 import LearningMaterialList from "./components/organisms/LearningMaterialList";
-import { Wavesurfer_react } from "components/atoms/wevesurfer/wavesurfer_react";
+// import { Wavesurfer_react } from "components/atoms/wevesurfer/wavesurfer_react";
 import { QuickMode } from "components/organisms/QuickMode";
 import { StudyPlace } from "components/pages/StudyPlace";
 import { Update } from "components/pages/Update";

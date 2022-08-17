@@ -1,4 +1,4 @@
-import { WSF_stock } from "../atoms/wevesurfer/wavesurfer";
+import { WSF_stock } from "../atoms/wavesurfer/wavesurfer";
 import { WidthChanger } from "templates/WidthChanger";
 
 export const StudyPlace = () => {

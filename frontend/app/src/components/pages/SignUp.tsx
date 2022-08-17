@@ -176,7 +176,7 @@ const SignUp: React.FC = () => {
                         variant="contained"
                         size="large"
                         fullWidth
-                        color="info"
+                        color="primary"
                         disabled={!name || !email || !password || !passwordConfirmation ? true : false}
                         className={classes.submitBtn}
                         onClick={handleSubmit}

@@ -123,7 +123,7 @@ const SignIn: React.FC = () => {
               >
                 {/* <Box sx={{ mt: 1 }}> */}
                 <form noValidate autoComplete="off">
-                  <Card sx={{ height: 400 }}>
+                  <Card>
                     {/* <Card className={classes.card}> */}
                     <CardHeader title="Sign In" />
                     {/* <CardHeader className={classes.header} title="Sign In" /> */}
@@ -154,7 +154,7 @@ const SignIn: React.FC = () => {
                         variant="contained"
                         size="large"
                         fullWidth
-                        color="info"
+                        color="primary"
                         disabled={!email || !password ? true : false} // 空欄があった場合はボタンを押せないように
 
                         // className={classes.submitBtn}

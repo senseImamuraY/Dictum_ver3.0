@@ -1,4 +1,4 @@
-import { WSF } from "components/atoms/wevesurfer/wavesurfer";
+import { WSF } from "../atoms/wavesurfer/wavesurfer";
 import { WidthChanger } from "templates/WidthChanger";
 import { Container } from "@mui/material";
 export const QuickMode = () => {

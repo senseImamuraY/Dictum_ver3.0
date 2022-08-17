@@ -1,4 +1,4 @@
-import client from "apis/client"
+import { client } from "apis/client"
 import Cookies from "js-cookie"
 
 import { SignUpParams, SignInParams } from "interfaces/index"

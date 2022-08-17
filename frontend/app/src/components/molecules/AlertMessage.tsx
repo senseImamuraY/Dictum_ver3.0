@@ -1,6 +1,8 @@
 import React from "react"
-import Snackbar from "@material-ui/core/Snackbar"
+// import Snackbar from "@material-ui/core/Snackbar"
+import { Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert"
+// import MuiAlert, { AlertProps } from "@material-ui/lab/Alert"
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -30,7 +32,8 @@ const AlertMessage = ({ open, setOpen, severity, message }: AlertMessageProps) =
         open={open}
         autoHideDuration={6000}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        onClose={handleCloseAlertMessage}
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        onClose={() => { handleCloseAlertMessage }}
       >
         <Alert onClose={handleCloseAlertMessage} severity={severity}>
           {message}

@@ -50,7 +50,7 @@ const LearningMaterialList: React.FC<Props> = (userId) => {
 
   useEffect(() => {
     handleGetLearningMaterials()
-  }, [handleGetLearningMaterials])
+  }, [])
 
   return (<><WidthChanger>
     <Container maxWidth="xl" className={classes.container}>

@@ -143,7 +143,7 @@ const Header: React.FC = () => {
             component={Link}
             to="/about"
             color="inherit"
-          // className={classes.linkBtn}
+            onClick={() => contextChecker()}
           >
             about
           </Button>
