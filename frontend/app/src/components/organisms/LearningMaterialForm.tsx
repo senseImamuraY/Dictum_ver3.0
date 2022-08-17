@@ -14,8 +14,8 @@ import DoneIcon from '@mui/icons-material/Done';
 import { Input } from '@mui/material';
 import AlertMessage from "../molecules/AlertMessage"
 import { makeStyles, createStyles } from '@mui/styles';
-import { AuthContext } from "App";
-import { AddText } from "components/molecules/AddText";
+// import { AuthContext } from "App";
+import { AddText } from "../molecules/AddText";
 import { createLearningMaterials } from "../../apis/learning_material"
 // frontend/app/src/apis/learning_material.ts
 const useStyles = makeStyles((theme: Theme) => ({

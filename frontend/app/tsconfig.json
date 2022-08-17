@@ -19,9 +19,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src", // 追加
+    // "baseUrl": "src", // 追加
+    "typeRoots": [
+      "./node_modules/@types",
+      "types"
+    ]
   },
   "include": [
-    "src"
+    "src/**/*",
+    "types/**/*"
   ]
 }

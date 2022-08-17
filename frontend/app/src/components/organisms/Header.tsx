@@ -16,9 +16,9 @@ import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 
-import { signOut } from "apis/auth"
+import { signOut } from "../../apis/auth"
 
-import { AuthContext } from "App"
+import { AuthContext } from "../../App"
 
 // const useStyles = makeStyles((theme: Theme) => createStyles({
 //   iconButton: {

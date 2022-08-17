@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
-import { AuthContext } from "App"
-import LearningMaterialList from "components/organisms/LearningMaterialList"
+import { AuthContext } from "../../App"
+import LearningMaterialList from "../organisms/LearningMaterialList"
 import { Button } from "@mui/material"
 import AlarmIcon from '@mui/icons-material/Alarm';
 import { Steps, Hints } from "intro.js-react"

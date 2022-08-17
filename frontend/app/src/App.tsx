@@ -3,20 +3,20 @@ import React, { useState, useEffect, createContext } from "react"
 import { BrowserRouter, Routes, Route, useParams, Link, Navigate, useNavigate } from "react-router-dom";
 
 import CommonLayout from "./templates/CommonLayout"
-import Home from "components/pages/Home"
-import SignUp from "components/pages/SignUp"
-import SignIn from "components/pages/SignIn"
+import Home from "./components/pages/Home"
+import SignUp from "./components/pages/SignUp"
+import SignIn from "./components/pages/SignIn"
 
-import { getCurrentUser } from "apis/auth"
-import { User } from "interfaces/index"
+import { getCurrentUser } from "./apis/auth"
+import { User } from "./interfaces/index"
 // import { WSF, WSF_stock } from "./components/atoms/wevesurfer/wavesurfer";
 import { Users } from './components/organisms/User';
 import LearningMaterialList from "./components/organisms/LearningMaterialList";
 // import { Wavesurfer_react } from "components/atoms/wevesurfer/wavesurfer_react";
-import { QuickMode } from "components/organisms/QuickMode";
-import { StudyPlace } from "components/pages/StudyPlace";
-import { Update } from "components/pages/Update";
-import { NotFound } from "components/pages/NotFound";
+import { QuickMode } from "./components/organisms/QuickMode";
+import { StudyPlace } from "./components/pages/StudyPlace";
+import { Update } from "./components/pages/Update";
+import { NotFound } from "./components/pages/NotFound";
 import { About } from "./components/pages/About"
 import { Top } from "./components/pages/Top"
 
@@ -124,35 +124,35 @@ const App: React.FC = () => {
   return (
 
     <>
+      {/* 
+      <BrowserRouter> */}
+      <AuthContext.Provider value={{ loading, setLoading, isSignedIn, setIsSignedIn, currentUser, setCurrentUser, onPlaying, setOnPlaying }}>
 
-      <BrowserRouter>
-        <AuthContext.Provider value={{ loading, setLoading, isSignedIn, setIsSignedIn, currentUser, setCurrentUser, onPlaying, setOnPlaying }}>
+        <CommonLayout>
+          <Routes>
 
-          <CommonLayout>
-            <Routes>
+            <Route path="users/:usersId" element={<Users />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/quickMode" element={<QuickMode />} />
+            <Route path="/learningMaterial/:learningMaterialId" element={<StudyPlace />} />
+            <Route path="/learningMaterial/:learningMaterialId/update" element={<Update />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/top" element={<Top />} />
 
-              <Route path="users/:usersId" element={<Users />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/quickMode" element={<QuickMode />} />
-              <Route path="/learningMaterial/:learningMaterialId" element={<StudyPlace />} />
-              <Route path="/learningMaterial/:learningMaterialId/update" element={<Update />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/top" element={<Top />} />
-
-              <Route path="*" element={<NotFound />} />
-              <Route
-                path="/"
-                element={
-                  <PrivateRoute>
-                    <Home />
-                  </PrivateRoute>
-                }
-              />
-            </Routes>
-          </CommonLayout>
-        </AuthContext.Provider>
-      </BrowserRouter>
+            <Route path="*" element={<NotFound />} />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </CommonLayout>
+      </AuthContext.Provider>
+      {/* </BrowserRouter> */}
 
     </>
   );

@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import WaveSurfer from "wavesurfer.js";
 import { useRef, useEffect, useState, useContext, useCallback } from "react";
 // import Waveform from "./Waveform";
@@ -17,7 +16,7 @@ import "intro.js/introjs.css";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 
 import { WidthChanger } from "../../../templates/WidthChanger";
-import { AuthContext } from "App";
+import { AuthContext } from "../../../App";
 {
   /* <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js" type="text/javascript"></script>  */
 }
