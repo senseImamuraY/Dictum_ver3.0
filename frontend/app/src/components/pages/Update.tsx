@@ -1,23 +1,19 @@
 import React, { useCallback, useState, useContext } from "react"
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-// import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Input } from '@mui/material';
 import { Theme } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import Box from "@material-ui/core/Box"
 import IconButton from "@material-ui/core/IconButton"
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera"
 import CancelIcon from "@material-ui/icons/Cancel"
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import DoneIcon from '@mui/icons-material/Done';
 import AlertMessage from "../molecules/AlertMessage"
 import { makeStyles, createStyles } from '@mui/styles';
 
-// import { AddText } from "components/molecules/AddText";
 import { updateLearningMaterials } from "../../apis/learning_material"
 import { AuthContext } from "../../App";
-// frontend/app/src/apis/learning_material.ts
 
 const useStyles = makeStyles((theme: Theme) => ({
   form: {
@@ -41,10 +37,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-// const Input = styled("input")({
-//   display: "none"
-// })
-
 const borderStyles = {
   bgcolor: "background.paper",
   border: 1,
@@ -61,10 +53,6 @@ interface LearningMaterialFormProps {
 
 
 export const Update = () => {
-
-  //   const location = useLocation();
-  // const state = location.state as 
-
   interface CustomizedState {
     state: {
       id: string
@@ -74,25 +62,17 @@ export const Update = () => {
       file: {
         url: File
       }
-
     }
-
   }
 
 
   const location = useLocation();
   const state = location.state as CustomizedState; // Type Casting, then you can get the params passed via router
-  // const { myState } = state;
-
   const { currentUser, setCurrentUser } = useContext(AuthContext);
-  // const { usersId } = useParams();
-  // const { state } = useLocation()
   console.log(state)
   const classes = useStyles()
   const userId = String(currentUser?.id);
   const id = String(state.state.id)
-  // const { usersId } = useParams();
-  // console.log(learningMaterialData)
   const [subject, setSubject] = useState<string>(state.state.subject)
   const [body, setBody] = useState<string>(state.state.body)
   const [answer, setAnswer] = useState<string>(state.state.answer)
@@ -168,9 +148,7 @@ export const Update = () => {
 
   return (
     <>
-      {/* {console.log(register)} */}
       <form className={classes.form} noValidate onSubmit={handleUpdateLearningMaterial}>
-        {/* <form className={classes.form} noValidate onSubmit={handleUpdateLearningMaterial}> */}
         <TextField
           placeholder={state.state.subject}
           variant="outlined"
@@ -213,7 +191,6 @@ export const Update = () => {
         <div className={classes.inputFileBtn}>
           <label htmlFor="icon-button-file">
             <Input
-              // accept="image/*"
               id="icon-button-file"
               type="file"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -226,7 +203,6 @@ export const Update = () => {
                 <h6><DoneIcon />音声ファイルが選択されました</h6>
                 : <h6><LibraryMusicIcon />音声ファイルを選択してください</h6>
               }
-
             </IconButton>
           </label>
         </div>
@@ -255,13 +231,6 @@ export const Update = () => {
           >
             <CancelIcon />
           </IconButton>
-          {/* <img
-            src={preview}
-            alt="preview img"
-            className={classes.preview}
-          /> */}
-          {/* {preview} */}
-          {/* <br />音声ファイルが選択されました。 */}
           {file?.name}
         </Box> : null
       }
@@ -273,9 +242,5 @@ export const Update = () => {
         message={updateMessage}
       />
     </>
-
-
-
-
   )
 }

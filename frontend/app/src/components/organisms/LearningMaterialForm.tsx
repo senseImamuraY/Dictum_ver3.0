@@ -1,7 +1,5 @@
 import React, { useCallback, useState, useContext } from "react"
 import { useParams } from "react-router-dom";
-// import { experimentalStyled as styled } from '@material-ui/core/styles';
-
 import { Theme } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
@@ -14,10 +12,10 @@ import DoneIcon from '@mui/icons-material/Done';
 import { Input } from '@mui/material';
 import AlertMessage from "../molecules/AlertMessage"
 import { makeStyles, createStyles } from '@mui/styles';
-// import { AuthContext } from "App";
+
 import { AddText } from "../molecules/AddText";
 import { createLearningMaterials } from "../../apis/learning_material"
-// frontend/app/src/apis/learning_material.ts
+
 const useStyles = makeStyles((theme: Theme) => ({
   form: {
     display: "flex",
@@ -40,10 +38,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }))
 
-// const Input = styled("input")({
-//   display: "none"
-// })
-
 const borderStyles = {
   bgcolor: "background.paper",
   border: 1,
@@ -57,7 +51,6 @@ interface LearningMaterialFormProps {
 
 const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: LearningMaterialFormProps) => {
   const classes = useStyles()
-  // const { usersId } = useParams();
   console.log(over)
   const [subject, setSubject] = useState<string>("")
   const [body, setBody] = useState<string>("")
@@ -81,7 +74,6 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
       setFile(file)
     }
 
-    // console.log(file)
   }, [])
 
   // プレビュー機能
@@ -141,11 +133,8 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
   }
 
   const [register, setRegister] = useState<boolean>(false)
-  // const {currentUser, setCurrentUser} = useContext(AuthContext);
   return (
     <>
-      {/* {console.log(currentUser)} */}
-      {/* {console.log(currentUser?.learning_materials.count)} */}
       <div id="createLM">
         <Button disabled={over} onClick={() => setRegister(!register)}>
           <AddText><h3>新しい音声ファイルの登録はこちら</h3></AddText>
@@ -155,7 +144,6 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
 
       {register && !over ?
         <>
-          {/* {console.log(register)} */}
           <form className={classes.form} noValidate onSubmit={handleCreateLearningMaterial}>
             <TextField
               placeholder="科目を入力してください。 例）英語"
@@ -196,7 +184,6 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
             <div className={classes.inputFileBtn}>
               <label htmlFor="icon-button-file">
                 <Input
-                  // accept="image/*"
                   id="icon-button-file"
                   type="file"
                   sx={{ display: "none", accept: "audio/*" }}
@@ -239,13 +226,6 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
               >
                 <CancelIcon />
               </IconButton>
-              {/* <img
-            src={preview}
-            alt="preview img"
-            className={classes.preview}
-          /> */}
-              {/* {preview} */}
-              {/* <br />音声ファイルが選択されました。 */}
               {file?.name}
             </Box> : null
           }

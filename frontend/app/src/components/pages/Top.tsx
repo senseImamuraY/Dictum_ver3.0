@@ -1,26 +1,21 @@
 import styled from "styled-components";
 import { Button } from "@mui/material"
-import AppBar from '@mui/material/AppBar';
-import React, { useContext, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CardHeader from '@mui/material/CardHeader';
 import StarIcon from '@mui/icons-material/StarBorder';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import Picture1 from "../imgs/Online test-bro.svg"
 import Picture2 from '../imgs/Inbox cleanup-pana.svg'
-// import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 const theme = createTheme();
 
@@ -28,11 +23,6 @@ const tiers = [
   {
     title: '機能が豊富',
     description: [
-      // '音声波形',
-      // 'キーボード操作対応',
-      // '速度変更',
-      // 'スキップ',
-      // 'ループ再生',
       '音声波形・キー操作・速度変更・スキップ・ループ再生など様々な機能を搭載。',
       '詳しい機能説明はサインアップ後「詳細（？がついている部分）」をクリックすれば確認できます。'
     ],
@@ -41,10 +31,6 @@ const tiers = [
     title: '好きな音声が使える',
     subheader: 'Most attractive feature',
     description: [
-      // '自分の好きな音声ファイルをアップロードして使えます',
-      // '好きな参考書・勉強本の音声が使えます',
-      // '音声を保存できます（5つまで・ファイルサイズは8MBまで）',
-      // 'クイックモードを使うとファイルを保存することなく、すぐに学習をスタートできます',
       '自分の好きな音声ファイルをアップロードして使えるので、好きな参考書・勉強本の音声でディクテーションができます。語学学習におすすめです。'
 
     ],
@@ -52,10 +38,6 @@ const tiers = [
   {
     title: '音声を保存できる',
     description: [
-      // '50 users included',
-      // '30 GB of storage',
-      // 'Help center access',
-      // 'Phone & email support',
       '音声を最大5つまで保存できます。（ファイルサイズは最大8MBまで）',
       '＊クイックモードを使用することで、音声を保存することなくすぐに学習をはじめることもできます。'
     ],
@@ -69,7 +51,6 @@ export const Top = () => {
         <CssBaseline />
         <Container maxWidth="lg">
           <main>
-            {/* Hero unit */}
             <Box
               sx={{
                 bgcolor: 'background.paper',
@@ -82,7 +63,6 @@ export const Top = () => {
                   component="h1"
                   variant="h1"
                   align="center"
-                  // color="text.primary"
                   gutterBottom
                   sx={{ fontFamily: "Century" }}
                 >
@@ -130,7 +110,6 @@ export const Top = () => {
               <Container maxWidth="md" component="main">
                 <Grid container spacing={5} alignItems="flex-end">
                   {tiers.map((tier) => (
-                    // Enterprise card is full width at sm breakpoint
                     <Grid
                       item
                       key={tier.title}
@@ -179,14 +158,12 @@ export const Top = () => {
                               {line}
                             </Typography>
                           ))}
-
                         </CardContent>
                       </Card>
                     </Grid>
                   ))}
                 </Grid>
               </Container>
-
             </Box>
           </main>
         </Container>
