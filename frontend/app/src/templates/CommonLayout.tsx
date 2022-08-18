@@ -1,7 +1,5 @@
 import React from "react"
-
 import { Container, Grid } from "@material-ui/core"
-// import { makeStyles } from "@material-ui/core/styles"
 import { makeStyles, createStyles } from '@mui/styles';
 
 import Header from "../components/organisms/Header"
@@ -11,7 +9,6 @@ import { BackgroundColor } from "../components/atoms/colors/BackgroundColor";
 const useStyles = makeStyles(() => ({
   container: {
     marginTop: "3rem",
-    // width: "100%"
   }
 }))
 
@@ -38,7 +35,6 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
             </Grid>
           </Container>
         </BackgroundColor>
-
       </main>
       <footer>
         <StickyFooter />

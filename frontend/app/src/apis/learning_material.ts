@@ -3,16 +3,11 @@ import { useParams } from "react-router-dom";
 
 
 import client_lm from "./client_lm"
-import { LearningMaterialApiJson } from "../interfaces/index"
-import { error } from "console";
 
 // 取得
 export const getLearningMaterials = (usersId: string | undefined) => {
   return client_lm.get(`${usersId}/learning_materials`)
 }
-// export const getLearningMaterials = (usersId: string|undefined): AxiosPromise<LearningMaterialApiJson> => {
-//   return client_lm.get(`${usersId}/learning_materials`)
-// }
 
 // 作成
 export const createLearningMaterials = (usersId: string | undefined, data: FormData): AxiosPromise => {

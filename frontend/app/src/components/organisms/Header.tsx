@@ -2,13 +2,7 @@ import React, { useContext, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Cookies from "js-cookie"
 import WaveSurfer from 'wavesurfer.js';
-// import { createStyles, makeStyles,Theme } from "@material-ui/core/styles"
-// import { makeStyles } from '@material-ui/styles';
 import { makeStyles, createStyles } from '@mui/styles';
-
-// import { ThemeProvider, createTheme } from '@mui/material/styles'
-// import { SampleComponent } from './SampleComponent'
-
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
@@ -17,26 +11,11 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 
 import { signOut } from "../../apis/auth"
-
 import { AuthContext } from "../../App"
 
-// const useStyles = makeStyles((theme: Theme) => createStyles({
-//   iconButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   title: {
-//     flexGrow: 1,
-//     textDecoration: "none",
-//     color: "inherit"
-//   },
-//   linkBtn: {
-//     textTransform: "none"
-//   }
-// }))
 
 const Header: React.FC = () => {
   const { loading, isSignedIn, setIsSignedIn, onPlaying, setOnPlaying } = useContext(AuthContext)
-  // const classes = useStyles({})
   const navigate = useNavigate()
 
   const handleSignOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -71,7 +50,6 @@ const Header: React.FC = () => {
 
           <Button
             color="inherit"
-            // className={classes.linkBtn}
             onClick={handleSignOut}
           >
             Sign out
@@ -84,7 +62,6 @@ const Header: React.FC = () => {
               component={Link}
               to="/signin"
               color="inherit"
-            // className={classes.linkBtn}
             >
               Sign in
             </Button>
@@ -92,7 +69,6 @@ const Header: React.FC = () => {
               component={Link}
               to="/signup"
               color="inherit"
-            // className={classes.linkBtn}
             >
               Sign Up
             </Button>
@@ -121,11 +97,8 @@ const Header: React.FC = () => {
         <Toolbar>
           <IconButton
             edge="start"
-            // className={classes.iconButton}
             color="inherit"
-
           >
-
           </IconButton>
           <MenuIcon />
           <Typography
@@ -133,7 +106,6 @@ const Header: React.FC = () => {
             to="/"
             color="inherit"
             variant="h6"
-            // className={classes.title}
             onClick={() => contextChecker()}
           >
             Home

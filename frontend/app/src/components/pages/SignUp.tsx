@@ -1,23 +1,18 @@
 import React, { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import Cookies from "js-cookie"
-
-// import { Theme } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import CardHeader from "@material-ui/core/CardHeader"
 import Button from "@material-ui/core/Button"
-import { spacing } from '@mui/system';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from "@material-ui/core/Box"
 import Grid from '@mui/material/Grid';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-
-
 import { makeStyles, createStyles } from '@mui/styles';
-// import { useTheme } from '@mui/material/styles';
+
 import { AuthContext } from "../../App"
 import AlertMessage from "../molecules/AlertMessage"
 import { signUp } from "../../apis/auth"
@@ -25,14 +20,11 @@ import { SignUpParams } from "../../interfaces/index"
 import { WidthChanger } from "../../templates/WidthChanger"
 
 const useStyles = makeStyles(() => ({
-  // const useStyles = makeStyles((theme: Theme) => ({
   container: {
     marginTop: 6
-    // marginTop: theme.spacing(6)
   },
   submitBtn: {
     marginTop: 2,
-    // marginTop: theme.spacing(2),
     flexGrow: 1,
     textTransform: "none"
   },
@@ -41,7 +33,6 @@ const useStyles = makeStyles(() => ({
   },
   card: {
     padding: 2,
-    // padding: theme.spacing(2),
     maxWidth: 400
   }
 }))
@@ -77,7 +68,6 @@ const SignUp: React.FC = () => {
 
       if (res.status === 200) {
         // アカウント作成と同時にログインさせてしまう
-        // 本来であればメール確認などを挟むべきだが、今回はサンプルなので
         Cookies.set("_access_token", res.headers["access-token"])
         Cookies.set("_client", res.headers["client"])
         Cookies.set("_uid", res.headers["uid"])

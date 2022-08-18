@@ -23,13 +23,6 @@ const CBox = styled.div`
 
 const Home: React.FC = () => {
   const { isSignedIn, currentUser } = useContext(AuthContext)
-
-  // if(onPlaying===true) {
-  //   setOnPlaying(false)
-  //   window.location.reload();
-  //   alert("リロードしました");
-  // }
-
   const [enabled, setEnabled] = useState(false)
   const [initialStep, setInitialStep] = useState(0)
 
@@ -76,9 +69,7 @@ const Home: React.FC = () => {
               initialStep={initialStep}
               onExit={onExit}
             />
-            {/* <button id="help">Help</button> */}
-            {/* <button id="about">About</button> */}
-            {/* <button id="contact">Contact Us</button> */}
+
             <Link to={"/quickMode"}>
               <Button id="quickMode" fullWidth sx={{ border: 1 }}>
                 <AlarmIcon /><h2>クイックモード</h2>
@@ -87,7 +78,6 @@ const Home: React.FC = () => {
             <div id="userCard">
               <LearningMaterialList userId={currentUser.id} />
             </div>
-
           </>
         ) : (
           <h1>Not signed in</h1>

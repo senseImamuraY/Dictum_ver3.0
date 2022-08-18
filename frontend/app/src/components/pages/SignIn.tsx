@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Cookies from "js-cookie"
-
 import { Theme } from "@material-ui/core/styles"
 import { Typography } from "@material-ui/core"
 import TextField from "@material-ui/core/TextField"
@@ -21,35 +20,11 @@ import AlertMessage from "../molecules/AlertMessage"
 import { signIn } from "../../apis/auth"
 import { SignInParams } from "../../interfaces/index"
 import { WidthChanger } from "../../templates/WidthChanger"
-// const useStyles = makeStyles((theme: Theme) => ({
-//   container: {
-//     marginTop: theme.spacing(6)
-//   },
-//   submitBtn: {
-//     marginTop: theme.spacing(2),
-//     flexGrow: 1,
-//     textTransform: "none"
-//   },
-//   header: {
-//     textAlign: "center"
-//   },
-//   card: {
-//     padding: theme.spacing(2),
-//     maxWidth: 400
-//   },
-//   box: {
-//     marginTop: "2rem"
-//   },
-//   link: {
-//     textDecoration: "none"
-//   }
-// }))
 
 const theme = createTheme();
 
 // サインイン用ページ
 const SignIn: React.FC = () => {
-  // const classes = useStyles()
   const navigate = useNavigate()
 
   const { setIsSignedIn, setCurrentUser } = useContext(AuthContext)
@@ -121,12 +96,9 @@ const SignIn: React.FC = () => {
                   alignItems: 'center',
                 }}
               >
-                {/* <Box sx={{ mt: 1 }}> */}
                 <form noValidate autoComplete="off">
                   <Card>
-                    {/* <Card className={classes.card}> */}
                     <CardHeader title="Sign In" />
-                    {/* <CardHeader className={classes.header} title="Sign In" /> */}
                     <CardContent>
                       <TextField
                         variant="outlined"
@@ -156,18 +128,14 @@ const SignIn: React.FC = () => {
                         fullWidth
                         color="primary"
                         disabled={!email || !password ? true : false} // 空欄があった場合はボタンを押せないように
-
-                        // className={classes.submitBtn}
                         onClick={handleSubmit}
                       >
                         Submit
                       </Button>
                       <Box textAlign="center">
-                        {/* <Box textAlign="center" className={classes.box}> */}
                         <Typography variant="body2">
                           Don't have an account? &nbsp;
                           <Link to="/signup">
-                            {/* <Link to="/signup" className={classes.link}> */}
                             Sign Up now!
                           </Link>
                         </Typography>
@@ -175,10 +143,10 @@ const SignIn: React.FC = () => {
                     </CardContent>
                   </Card>
                 </form>
-                {/* </Box> */}
               </Box>
             </Grid>
-          </Grid></WidthChanger>
+          </Grid>
+        </WidthChanger>
       </ThemeProvider>
       <AlertMessage // エラーが発生した場合はアラートを表示
         open={alertMessageOpen}

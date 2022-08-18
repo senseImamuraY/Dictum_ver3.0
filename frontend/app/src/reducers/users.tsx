@@ -1,5 +1,4 @@
 
-// import { act } from 'react-dom/test-utils';
 import { REQUEST_STATE } from '../constants';
 
 export const initialState = {
@@ -13,8 +12,6 @@ export const usersActionTypes = {
 }
 
 export const usersReducer = (state: any, action: any) => {
-  // console.log(state)
-  // console.log(action)
   switch (action.type) {
     case usersActionTypes.FETCHING:
       return {
@@ -23,15 +20,9 @@ export const usersReducer = (state: any, action: any) => {
       };
     case usersActionTypes.FETCH_SUCCESS:
       console.log(action.payload)
-      // let a= Array.from(action.payload.users);
-      // console.log(a)
-      // let array = [...action.payload.users];
-      // console.log(array)
       return {
         fetchState: REQUEST_STATE.OK,
         usersList: [action.payload.users],
-        // usersList: a,
-
       };
 
     default:

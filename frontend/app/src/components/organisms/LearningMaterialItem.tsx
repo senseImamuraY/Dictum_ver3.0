@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react"
 import { useParams } from "react-router-dom"
-// import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardHeader from "@material-ui/core/CardHeader"
 import CardMedia from "@material-ui/core/CardMedia"
@@ -19,19 +18,17 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 import AndroidIcon from '@mui/icons-material/Android';
 import { makeStyles, createStyles } from '@mui/styles';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
-
-
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-// import AlertMessage from "components/molecules/AlertMessage"
+import { Steps, Hints } from "intro.js-react"
+import 'intro.js/introjs.css';
+
 import { LearningMaterial } from "../../interfaces/index"
 import { deleteLearningMaterials } from "../../apis/learning_material"
 import { WSF_stock } from "../atoms/wavesurfer/wavesurfer"
-// import { Wavesurfer_react } from "../../components/atoms/wevesurfer/wavesurfer_react"
 import { AuthContext } from "../../App"
 import { Update } from "../pages/Update"
 import AlertMessage from "../molecules/AlertMessage"
-import { Steps, Hints } from "intro.js-react"
-import 'intro.js/introjs.css';
+
 
 const useStyles = makeStyles(() => ({
   card: {
@@ -60,12 +57,8 @@ const LearningMaterialItem = ({ learning_material, handleGetLearningMaterials }:
   const [deleteMessage, setDeleteMessage] = useState<string>("")
   const [deleteColor, setDeleteColor] = useState<boolean>(true)
   const classes = useStyles()
-  // const [like, setLike] = useState(false)
   const [like, setLike] = useState<boolean>(false)
   const usersId = String(currentUser?.id);
-  // const { usersId } = useParams();
-  // const HandleDeletePost = async (id) => {
-
   const [enabled, setEnabled] = useState(false)
   const [initialStep, setInitialStep] = useState(0)
 
@@ -139,26 +132,9 @@ const LearningMaterialItem = ({ learning_material, handleGetLearningMaterials }:
           }
           title={currentUser?.name}
         />
-        {/* { learning_material.file?.url ?
-            <CardMedia
-              component="img"
-              src={learning_material.file.url}
-              alt="post image"
-            /> : null
-          } */}
 
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="span">
-            {/* { learning_material.map((subject: string, body: string, answer: string, index: number) => {
-                  return (
-                    <>
-                      <p key={index}>{subject}</p>
-                      <p key={index}>{body}</p>
-                      <p key={index}>{answer}</p>
-                    </>
-                  )
-                })
-              } */}
             {learning_material.subject.split("\n").map((subject: string, index: number) => {
               console.log(learning_material)
 
@@ -167,19 +143,6 @@ const LearningMaterialItem = ({ learning_material, handleGetLearningMaterials }:
                   <div key={index}>
                     <p>{subject}</p>
                     <p>{learning_material.body}</p>
-                    {/* <p>{learning_material.answer}</p>  */}
-                    {/* <p key={index}>{subject}</p>
-                        <p key={index}>{learning_material.body}</p>
-                        <p key={index}>{learning_material.answer}</p>   */}
-                    {/* <p key={index}>{learning_material.file}</p> */}
-                    {/* {WSF_stock(learning_material.file)} */}
-                    {/* {WSF_stock("frontend/app/src/img/Night_Sea.mp3")} */}
-                    {/* <WSF_stock file={learning_material.file?.url}/> */}
-                    {/* <WSF_stock file={learning_material.file}/> */}
-
-
-                    {/* <WaveformContainer /> */}
-                    {/* <WSF /> */}
                   </div>
 
                 </>
@@ -197,7 +160,6 @@ const LearningMaterialItem = ({ learning_material, handleGetLearningMaterials }:
 
           <div className={classes.delete}>
             <Link to={`/learningMaterial/${learning_material.id}`} state={{ state: learning_material }}>
-              {/* <Link to="/learningMaterial/:learningMaterialId"> */}
               <IconButton id="play">
                 <LyricsIcon />play
               </IconButton>
@@ -216,9 +178,7 @@ const LearningMaterialItem = ({ learning_material, handleGetLearningMaterials }:
             </IconButton>
           </div>
         </CardActions>
-
       </Card>
-      {/* <WSF /> */}
 
       <Routes>
         <Route path="learningMaterial/:learningMaterialId" element={<WSF_stock file={learning_material.file} />} />
