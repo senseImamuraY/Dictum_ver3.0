@@ -55,7 +55,7 @@ test:
 #   password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
 production:
   <<: *default
-  database: <%= ENV["DATABASE_NAME"] %>
-  username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
-  host: <%= ENV["DATABASE_HOST"] %>
+  database: <%= ENV["APP_DATABASE"] %>
+  username: <%= ENV["APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+  host: <%= ENV["APP_DATABASE_HOST"] %>

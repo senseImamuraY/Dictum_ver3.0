@@ -1,6 +1,8 @@
 FROM ruby:3.1.2-buster
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
+ENV RAILS_ENV=production
+
 ENV APP_PATH /myapp
 
 RUN mkdir $APP_PATH
@@ -19,4 +21,7 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
+# CMD ["rails", "server", "-b", "0.0.0.0"]
+
 CMD ["rails", "server", "-b", "0.0.0.0"]
+RUN ["apt-get", "install", "-y", "vim"]
