@@ -1,5 +1,8 @@
 FROM ruby:3.1.2-buster
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs default-mysql-client 
+
+ENV RAILS_ENV=production
 
 ENV APP_PATH /myapp
 
@@ -19,4 +22,13 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
+RUN mkdir -p tmp/sockets
+RUN mkdir -p tmp/pids
+
 CMD ["rails", "server", "-b", "0.0.0.0"]
+# COPY start.sh /start.sh
+# RUN chmod 744 /start.sh
+# CMD ["sh", "/start.sh"]
+
+# CMD ["rails", "server", "-b", "0.0.0.0"]
+# RUN ["apt-get", "install", "-y", "vim"]
