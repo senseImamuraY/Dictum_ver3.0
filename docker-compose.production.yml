@@ -4,13 +4,18 @@ services:
     build:
       context: ./backend/
       dockerfile: Dockerfile
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb -e production"
     volumes:
       - ./backend:/myapp
       - ./backend/vendor/bundle:/myapp/vendor/bundle
+      - tmp-data:/myapp/tmp
+      - log-data:/myapp/log
+      # - public-data:/myapp
     environment:
       TZ: Asia/Tokyo
-      RAILS_ENV: development
+      RAILS_ENV: production
+      # RAILS_ENV: development
     # ports:
     #   - "3001:3000"
     depends_on:
@@ -50,7 +55,7 @@ services:
     build:
       context: backend/containers/nginx
     volumes:
-      - public-data:/myapp/public
+      - public-data:/myapp
       - tmp-data:/myapp/tmp
     ports:
       - 80:80
