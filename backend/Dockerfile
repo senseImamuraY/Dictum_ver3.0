@@ -11,6 +11,10 @@ WORKDIR $APP_PATH
 
 COPY Gemfile $APP_PATH/Gemfile
 COPY Gemfile.lock $APP_PATH/Gemfile.lock
+
+# 変更を追記いたしました。
+RUN bundle config set force_ruby_platform true
+
 RUN bundle install
 
 COPY . $APP_PATH
