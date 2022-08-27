@@ -16,7 +16,7 @@
 # end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:4000',"https://web.dictum-app.site"
+    origins 'http://localhost:4000',"https://web.dictum-app.site","http://localhost"
 
     resource '*',
       headers: :any,
