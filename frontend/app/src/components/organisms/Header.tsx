@@ -40,6 +40,18 @@ const Header: React.FC = () => {
     }
   }
 
+  const [clickHeader, setClickHeader] = useState(false);
+
+  const contextChecker = () => {
+    if (onPlaying === true) {
+      setClickHeader(true)
+    }
+  }
+  if (onPlaying === true && clickHeader === true) {
+    setOnPlaying(false)
+    setClickHeader(false)
+    window.location.reload()
+  }
 
   const AuthButtons = () => {
     // 認証完了後はサインアウト用のボタンを表示
@@ -50,7 +62,12 @@ const Header: React.FC = () => {
 
           <Button
             color="inherit"
-            onClick={handleSignOut}
+            onClick={(e) => {
+              setTimeout(() => {
+                contextChecker();
+              }, 600);
+              handleSignOut(e);
+            }}
           >
             Sign out
           </Button>
@@ -79,18 +96,7 @@ const Header: React.FC = () => {
       return <></>
     }
   }
-  const [clickHeader, setClickHeader] = useState(false);
 
-  const contextChecker = () => {
-    if (onPlaying === true) {
-      setClickHeader(true)
-    }
-  }
-  if (onPlaying === true && clickHeader === true) {
-    setOnPlaying(false)
-    setClickHeader(false)
-    window.location.reload()
-  }
   return (
     <>
       <AppBar position="static">
