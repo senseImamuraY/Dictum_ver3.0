@@ -5,8 +5,6 @@ RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs default-mysql-client yarn 
 
-# ENV RAILS_ENV=production
-
 ENV APP_PATH /myapp
 
 RUN mkdir $APP_PATH
@@ -21,24 +19,9 @@ RUN bundle config set force_ruby_platform true
 RUN gem install bundler
 RUN bundle install
 
-# COPY . $APP_PATH
-
 VOLUME /tmp
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
-
-# EXPOSE 3000
-
-# Start the main process.
-# RUN mkdir -p tmp/sockets
-# RUN mkdir -p tmp/pids
-
 CMD ["rails", "server"]
-# COPY start.sh /start.sh
-# RUN chmod 744 /start.sh
-# CMD ["sh", "/start.sh"]
-
-# CMD ["rails", "server", "-b", "0.0.0.0"]
-# RUN ["apt-get", "install", "-y", "vim"]
