@@ -154,10 +154,9 @@ export const Update = () => {
           variant="outlined"
           multiline
           fullWidth
-          rows="4"
+          minRows={4}
           margin="dense"
           value={subject}
-          defaultValue={state.state.subject}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setSubject(e.target.value)
           }}
@@ -167,10 +166,9 @@ export const Update = () => {
           variant="outlined"
           multiline
           fullWidth
-          rows="4"
+          minRows={4}
           margin="dense"
           value={body}
-          defaultValue={state.state.body}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setBody(e.target.value)
           }}
@@ -180,10 +178,9 @@ export const Update = () => {
           variant="outlined"
           multiline
           fullWidth
-          rows="4"
+          minRows={4}
           margin="dense"
           value={answer}
-          defaultValue={state.state.answer}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setAnswer(e.target.value)
           }}

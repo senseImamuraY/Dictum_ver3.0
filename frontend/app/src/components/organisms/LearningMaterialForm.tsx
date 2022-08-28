@@ -150,7 +150,7 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
               variant="outlined"
               multiline
               fullWidth
-              rows="4"
+              minRows={4}
               margin="dense"
               value={subject}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -162,7 +162,7 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
               variant="outlined"
               multiline
               fullWidth
-              rows="4"
+              minRows={4}
               margin="dense"
               value={body}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -174,7 +174,7 @@ const LearningMaterialForm = ({ handleGetLearningMaterials, userId, over }: Lear
               variant="outlined"
               multiline
               fullWidth
-              rows="4"
+              minRows={4}
               margin="dense"
               value={answer}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

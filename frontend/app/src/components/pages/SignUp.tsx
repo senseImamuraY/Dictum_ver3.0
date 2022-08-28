@@ -91,7 +91,7 @@ const SignUp: React.FC = () => {
     <>
       <ThemeProvider theme={theme}>
         <WidthChanger>
-          <Grid container xs={12} component="main" sx={{ height: '100vh' }}>
+          <Grid item={true} container xs={12} component="main" sx={{ height: '100vh' }}>
             <CssBaseline />
             <Grid
               item

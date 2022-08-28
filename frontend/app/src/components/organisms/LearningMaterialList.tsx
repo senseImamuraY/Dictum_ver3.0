@@ -45,34 +45,38 @@ const LearningMaterialList: React.FC<Props> = (userId) => {
     handleGetLearningMaterials()
   }, [])
 
-  return (<><WidthChanger>
-    <Container maxWidth="xl" className={classes.container}>
-      <Grid container direction="row" justifyContent="center">
-        <Grid item >
-          <LearningMaterialForm
-            handleGetLearningMaterials={handleGetLearningMaterials}
-            userId={usersId}
-            over={checkNumberOfLms}
-          />
-          <h2>教材</h2>
-        </Grid>
-      </Grid>
-    </Container>
-  </WidthChanger>
-    {learning_materials_var?.map((learning_material: LearningMaterial) => {
-      return (
+  return (
+    <>
 
-        <div id="userCard">
-          <LearningMaterialItem
-            key={learning_material.id}
-            learning_material={learning_material}
-            handleGetLearningMaterials={handleGetLearningMaterials}
-          />
-        </div>
-      )
-    }
-    )}
-  </>
+      <WidthChanger>
+        <Container maxWidth="xl" className={classes.container}>
+          <Grid container direction="row" justifyContent="center">
+            <Grid item >
+              <LearningMaterialForm
+                handleGetLearningMaterials={handleGetLearningMaterials}
+                userId={usersId}
+                over={checkNumberOfLms}
+              />
+              <h2>教材</h2>
+            </Grid>
+          </Grid>
+        </Container>
+      </WidthChanger>
+      {learning_materials_var?.map((learning_material: LearningMaterial) => {
+        return (
+          <div key={learning_material.id}>
+            <div id="userCard" >
+              <LearningMaterialItem
+                learning_material={learning_material}
+                handleGetLearningMaterials={handleGetLearningMaterials}
+              />
+            </div>
+          </div>
+
+        )
+      }
+      )}
+    </>
   )
 }
 

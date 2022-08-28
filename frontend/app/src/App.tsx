@@ -100,6 +100,14 @@ const App: React.FC = () => {
       <AuthContext.Provider value={{ loading, setLoading, isSignedIn, setIsSignedIn, currentUser, setCurrentUser, onPlaying, setOnPlaying }}>
         <CommonLayout>
           <Routes>
+            <Route
+              path="/*"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
             <Route path="users/:usersId" element={<Users />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
@@ -109,14 +117,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/top" element={<Top />} />
             <Route path="*" element={<NotFound />} />
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            />
+
           </Routes>
         </CommonLayout>
       </AuthContext.Provider>
