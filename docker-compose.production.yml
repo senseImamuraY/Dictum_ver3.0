@@ -15,7 +15,7 @@ services:
       context: ./backend/
       dockerfile: Dockerfile
     volumes:
-      - .:/myapp
+      - ./backend:/myapp
       - bundle:/usr/local/bundle
     depends_on:
       - db

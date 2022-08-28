@@ -18,9 +18,10 @@ COPY Gemfile.lock $APP_PATH/Gemfile.lock
 # 変更を追記いたしました。
 RUN bundle config set force_ruby_platform true
 
+RUN gem install bundler
 RUN bundle install
 
-COPY . $APP_PATH
+# COPY . $APP_PATH
 
 VOLUME /tmp
 # Add a script to be executed every time the container starts.
